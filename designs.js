@@ -9,5 +9,13 @@ function makeGrid() {
 
     const gridhth = document.getElementById('inputHeight').value;
     const gridhth = document.getElementById('inputWidth').value;
+    const gridhth = document.getElementById('colorPicker').value;
+
+    for (var i = 0; i < gridhth; i++) {
+        let mytab = document.createElement("tr");
+        mytab.id = "row" + i;
+
+    }
+
 
 }
