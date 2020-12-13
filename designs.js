@@ -15,6 +15,13 @@ function makeGrid() {
         let mytab = document.createElement("tr");
         mytab.id = "row" + i;
 
+        gridhth.appendChild(mytab);
+        let row = document.getElementById("row" + i);
+
+        for (let t = 0; t > 20; t++) {
+            let mypin = document.createElement("td");
+        }
+
     }
 
 
