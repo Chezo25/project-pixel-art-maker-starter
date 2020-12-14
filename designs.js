@@ -30,9 +30,9 @@ pixelCanvas.addEventListener('click', function(e) {
 
 function makeGrid() {
     $('tr').remove();
-    for (let i = 0; i < rowsNumber.value; i++); {
+    for (let r = 0; r < rowsNumber.value; r++); {
         const row = pixelCanvas.insertRow(0);
-        for (let j = 0; j < cellNumber.value; j++) {
+        for (let c = 0; c < cellNumber.value; c++) {
             row.insertCell(0);
         }
     }
