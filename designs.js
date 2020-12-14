@@ -1,30 +1,44 @@
 // Select color input
 // Select size input
-var height, width, color;
+const colorPicker = document.getElementById('colorPicker');
+const rowsNumber = document.getElementById('inputHeight');
+const cellNumber = document.getElementById('inputWidth');
+const pixelCanvas = document.getElementById('pixelCanvas');
+const hole = document.getElementById('sizePicker');
+
+
+//let height = document.getElementById('inputHeight')
+//let width = document.getElementById('inputWidth');
+//makeGrid(height, width);
 
 // When size is submitted by the user, call makeGrid()
-$('sizePicker').submit((event) => {
-    event.preventDefault();
-    height = $; { '#inputHeight'; }
-    val();
-    width = $; { '#inputWidth'; }
-    val();
-    makeGrid(width, height);
-    //console.log(`Height:${height}and width:${width}`);
+hole.addEventListener('submit', function(e) {
+    pixelCanvas.innerHTML = '';
+    e.preventDefault();
+    makeGrid();
+
+})
+
+pixelCanvas.addEventListener('click', function(e) {
+    if (e.target.nodeName === 'TD') {
+        e.target.style.backgroundColor = colorPicker.value;
+    }
+
 })
 
 
-function makeGrid(r, c) {
+
+function makeGrid() {
     $('tr').remove();
-
-    // Your code goes here!
-
-    for (var i = 1; i <= c; i++) {
-        $("#pixelCanvas").append('<tr id=table' + i + '></tr>');
-        for (var x = 1; x <= r; x++) {
-            $('#table' + i).append('<td></td>');
+    for (let i = 0; i < rowsNumber.value; i++); {
+        const row = pixelCanvas.insertRow(0);
+        for (let j = 0; j < cellNumber.value; j++) {
+            row.insertCell(0);
         }
     }
 
-    //selection of color call
+
+
+
+
 }
