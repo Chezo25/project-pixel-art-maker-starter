@@ -1,43 +1,36 @@
 // Select color input
+let paint = document.getElementById('colorPicker');
+let canvas = document.getElementById('pixelCanvas');
 // Select size input
-const colorPicker = document.getElementById('colorPicker');
-const rowsNumber = document.getElementById('inputHeight');
-const cellNumber = document.getElementById('inputWidth');
-const pixelCanvas = document.getElementById('pixelCanvas');
-const hole = document.getElementById('sizePicker');
+let tabColumn = document.getElementById('inputHeight');
+let wide = document.getElementById('inputWidth');
 
-
-//let height = document.getElementById('inputHeight')
-//let width = document.getElementById('inputWidth');
-//makeGrid(height, width);
+const selecter = document.querySelector('#sizePicker');
 
 // When size is submitted by the user, call makeGrid()
-hole.addEventListener('submit', function(e) {
-    pixelCanvas.innerHTML = '';
-    e.preventDefault();
-    makeGrid();
-
-})
-
-pixelCanvas.addEventListener('click', function(e) {
-    if (e.target.nodeName === 'TD') {
-        e.target.style.backgroundColor = colorPicker.value;
-    }
+selecter.addEventListener('submit', evt => {
+    evt.preventDefault();
+    canvas.innerHTML = '';
+    makeGrid(tabColumn.value, wide.value);
 
 })
 
 
+function makeGrid(tabColumn, wide) {
 
-function makeGrid() {
+    for (var i = 0; i < tabColumn; i++) {
+        var col = document.createElement('tr');
+        canvas.appendChild(col);
+        for (var r = 0; r <= wide; r++) {
+            let dots = document.createElement("td");
+            col.appendChild(dots);
+            dots.addEventListener("click", () => {
+                let paint = document.getElementById("colorPicker").value
+                dots.style.backgroundColor = paint;
+            })
 
-    for (let r = 0; r < rowsNumber.value; r++); {
-        const row = pixelCanvas.insertRow(0);
-        for (let c = 0; c < cellNumber.value; c++) {
-            row.insertCell(0);
         }
     }
-
-
 
 
 
